@@ -4,6 +4,7 @@ FROM debian
 RUN apt-get update
 
 # Install packages from a file
+RUN echo apt-get install $(grep -vE "^\s*#" packages.list | tr "\n" " ")
 RUN apt-get install $(grep -vE "^\s*#" packages.list | tr "\n" " ")
 
 # define default user
