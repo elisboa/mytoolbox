@@ -3,11 +3,8 @@ FROM debian
 # First of all, update package list from repositories
 RUN apt-get update
 
-# Then install some packages
-# install screen
-RUN apt-get install screen -y || apt-get install -y --fix-missing
-# install openvpn
-RUN apt-get install openvpn -y || apt-get install -y --fix-missing
+# Install packages from a file
+RUN apt-get install $(grep -vE "^\s*#" packages.list | tr "\n" " ")
 
 # define default user
 USER root
