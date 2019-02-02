@@ -13,8 +13,8 @@ RUN apt-get update
 COPY packages.list /root 
 
 # Install packages from a file
-RUN echo apt-get install $(grep -vE "^\s*#" packages.list | tr "\n" " ")
-RUN apt-get install $(grep -vE "^\s*#" packages.list | tr "\n" " ")
+RUN echo apt-get install -y $(grep -vE "^\s*#" packages.list | tr "\n" " ")
+RUN apt-get install -y $(grep -vE "^\s*#" packages.list | tr "\n" " ")
 
 # run a screen session
 CMD screen -l -q -e^Bb -S root -s /bin/bash
