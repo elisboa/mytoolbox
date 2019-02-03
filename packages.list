@@ -1,4 +1,14 @@
 apt-utils
-screen
-openvpn
+curl
 htop
+less
+mtr
+mysql-client
+openvpn
+screen
+sshfs
+vim
+watch
+wget
+whois
+awscli
